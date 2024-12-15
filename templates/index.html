@@ -4,175 +4,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kreden AI</title>
+
+    <!-- Load jQuery before app.js -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
-    <style>
-      /* Main Container to fill the height of the screen */
-      .main-container {
-        display: flex;
-        flex-direction: column;
-        height: 100vh;
-      }
 
-      /* Chat Box */
-      .chat-box {
-        flex-grow: 1;
-        padding: 1.5rem;
-        background-color: #f7fafc;
-        overflow-y: auto;
-        margin-bottom: 0px; /* Extra space to avoid overlap with input */
-      }
-
-      /* Input Section (Fixed at the bottom) */
-      .input-section {
-        padding: 1rem;
-        background-color: #f7fafc;
-        border-top: 1px solid #e2e8f0;
-        position: sticky;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      .input-section form {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      /* Input Box Style */
-      .input-section input {
-        flex: 1;
-        padding: 1rem;
-        border: 1px solid #cbd5e0;
-        border-radius: 0.375rem;
-        outline: none;
-        transition: all 0.3s ease-in-out;
-        height: 3rem;
-      }
-
-      /* Button Style */
-      .input-section button {
-        background-color: #3182ce;
-        color: white;
-        padding: 0.75rem 1.5rem;
-        border-radius: 0.375rem;
-        cursor: pointer;
-        transition: all 0.3s ease-in-out;
-        height: 3rem; /* Match input height */
-      }
-
-      .input-section button:hover {
-        background-color: #2b6cb0;
-      }
-
-      /* Loading Spinner */
-      .spinner {
-        border: 4px solid #f3f3f3; /* Light grey */
-        border-top: 4px solid #3182ce; /* Blue */
-        border-radius: 50%;
-        width: 24px;
-        height: 24px;
-        animation: spin 1s linear infinite;
-      }
-
-      /* Spinner Animation */
-      @keyframes spin {
-        0% {
-          transform: rotate(0deg);
-        }
-        100% {
-          transform: rotate(360deg);
-        }
-      }
-
-      /* Header Style */
-      .header {
-        background-color: #14365a;
-        color: white;
-        padding: 1.5rem;
-        text-align: center;
-        position: sticky;
-        top: 0;
-        z-index: 10;
-      }
-
-      /* Thinking Indicator */
-      .thinking-indicator {
-        display: none;
-        text-align: center;
-        margin-top: 20px;
-      }
-
-      /* Loading Spinner */
-      .spinner {
-        border: 4px solid #f3f3f3; /* Light grey */
-        border-top: 4px solid #3182ce; /* Blue */
-        border-radius: 50%;
-        width: 24px;
-        height: 24px;
-        animation: spin 1s linear infinite;
-      }
-
-      /* Spinner Animation */
-      @keyframes spin {
-        0% {
-          transform: rotate(0deg);
-        }
-        100% {
-          transform: rotate(360deg);
-        }
-      }
-      .footer{
-        text-align: center;
-        padding-bottom: 10px;
-      }
-    </style>
+    <!-- Link to the CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
   </head>
-  <body class="bg-gray-100">
+  <body>
     <div class="main-container">
-      <!-- Header Section -->
       <div class="header">
-        <h1 class="text-3xl font-semibold"><b>Kreden</b>AI</h1>
-        <p class="mt-2 text-lg">Your Study Assistant (Do <span class="text-red-500 font-bold">NOT</span> stroes any history)</p>
+        <h1><b>Kreden</b> AI</h1>
+        <p>No History</p>
       </div>
-
-      <!-- Chat Box Section -->
       <div id="chat-box" class="chat-box">
         <!-- Chat content will be injected here dynamically -->
-        <div id="thinking-indicator" class="hidden flex justify-center mt-4">
-          <div class="spinner"></div>
-        </div>
       </div>
-
-      <!-- Thinking Indicator -->
-      <div id="thinking-indicator" class="thinking-indicator">
-        <div class="spinner"></div>
-        <p class="text-gray-500">Thinking...</p>
-      </div>
-
-      <!-- Input Section (Fixed at the bottom) -->
       <div class="input-section">
         <form id="chat-form">
-          <input
-            type="text"
-            id="query"
-            placeholder="Ask your question..."
-            autocomplete="off"
-          />
+          <input type="text" id="query" placeholder="Ask your question..." autocomplete="off" />
           <button type="submit">Ask</button>
         </form>
-
-      </div>
-      <div class="footer text-gray-500">
-       <p> By sahil Makwana 🖥</p>
       </div>
     </div>
-    <script src="app.js"></script>
+
+    <!-- Custom app.js -->
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
   </body>
 </html>
