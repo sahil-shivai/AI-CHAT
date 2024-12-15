@@ -16,7 +16,7 @@ $(document).ready(function () {
         $('#thinking-indicator').removeClass('hidden');
 
         $.ajax({
-            url: "http://127.0.0.1:5000/study", 
+            url: "https://kredenai.onrender.com/study", 
             type: "POST",
             contentType: "application/json",
             data: JSON.stringify({ query }),
